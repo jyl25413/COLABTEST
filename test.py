@@ -1,36 +1,28 @@
-#---------------------------------------
-#Exercise 16. Reading and Writing Files
-#---------------------------------------
-from sys import argv
+#-------------------------------
+#Exercise 18. Names, Variables, Code, Functions
+#-------------------------------
 
-script, filename = argv
+# this one is like your scripts with argv
+def print_two(*args): 
+  arg1, arg2 = args
+arg1="TEST1"
+arg2="TEST2"
+print ("arg1: %r, arg2: %r" % (arg1, arg2))
 
-print ("We\'re going to erase %r." % filename)
-print ("If you don\'t want that, hit CTRL-C (^C).")
-print ('If you do want that, hit RETURN.')
+# ok, that *args is actually pointless, we can just do this
+def print_two_again(arg1, arg2):
+print ('arg1: %r, arg2: %r' % (arg1, arg2))
 
-#test=input('?')
+# this just takes one argument
+def print_one(arg1):
+print ('arg1: %r' % arg1)
 
-print ('Opening the file...')
-target = open("text.txt", 'w')
+# this one takes no arguments
+def print_none():
+print ("I got nothin'.")
 
-print 'Truncating the file.  Goodbye! %r' % target
-target.truncate()
 
-print ('Now I\'m going to ask you for three lines.')
-
-line1 = input('line 1: ')
-line2 = input('line 2: ')
-line3 = input('line 3: ')
-
-print ("I\'m going to write these to the file.")
-
-target.write(line1)
-target.write('\n')
-target.write(line2)
-target.write('\n')
-target.write(line3)
-target.write('\n')
-
-print ('And finally, we close it.')
-target.close()
+print_two('Zed','Shaw')
+print_two_again('Zed','Shaw')
+print_one('First!')
+print_none()
